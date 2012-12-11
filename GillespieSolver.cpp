@@ -159,7 +159,7 @@ double GillespieSolver::step(void)
 	}
 
 	double rnd_num1 = gsl_rng_uniform(this->random_handle);
-	double dt = gsl_sf_log(1.0 / rnd_num1) / double(a_total);
+	double dt = gsl_sf_log(1.0 / rnd_num1) / a_total;
 	double rnd_num2 = gsl_rng_uniform(this->random_handle) * a_total;
 
 	int u(-1);
@@ -244,7 +244,7 @@ void GillespieSolver::step(void) {
 	}
 
 	double rnd_num1 = this->rng_.uniform(0, 1);
-	double dt = gsl_sf_log(1.0 / rnd_num1) / a_total;
+	double dt = gsl_sf_log(1.0 / rnd_num1) / double(a_total);
 	double rnd_num2 = this->rng_.uniform(0, 1) * a_total;
 
 	int u(-1);

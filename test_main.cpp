@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
 	// Expand Reaction Rule.
 	ReactionRule rr1;
-	rr1.set_k(0.5);
+	rr1.set_k(5.001);
 	rr1.add_reactant(sp1);
 	rr1.add_product(sp2);
 
@@ -33,8 +33,8 @@ int main(int argc, char **argv)
 	world->add_species(sp2);
 
 	// set molecule nums.
-	world->add_molecules(sp1, 1000);
-	world->add_molecules(sp2, 250);
+	world->add_molecules(sp1, 10);
+	world->add_molecules(sp2, 10);
 	
 	model->add_species(sp1);
 	model->add_species(sp2);
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 
 	for(int i = 0; i < 10; i++) {
 		sim.step();
-		printf("t = %f \n", sim.t());
+		printf("t = %f A: %llu, B: %llu \n", sim.t(), world->num_molecules(sp1), world->num_molecules(sp2));
 	}
 
 }
